@@ -1,12 +1,12 @@
 import serial
 import time
 
-ser = serial.Serial("/dev/ttyUSB0", 19200, timeout=10)  # python -m serial.tools.miniterm
+ser = serial.Serial("/dev/ttyACM0", 19200, timeout=10)  # python -m serial.tools.miniterm
 time.sleep(1.0)  # Necessary sometimes :)
 ser.reset_input_buffer()
 
 def send_command(command):
-    """Send a command string over serial and return the response."""
+    #Send a command string over serial and return the response.
     message_bytes = (command + "\n").encode()
     ser.write(message_bytes)
 
